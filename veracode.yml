@@ -1,12 +1,12 @@
 default:
-  runs_on: windows-latest
+  runs_on: ubuntu-latest
 actions:
   veracode_sca_scan:
     build:
-      runs_on: windows-latest
+      runs_on: ubuntu-latest
 veracode_static_scan:
   push:
-    trigger: false
+    trigger: true
     # Please only specify either branches_to_run or branches_to_exclude
     # Entering both will only execute branches_to_run
     # Leaving them both blank means this will never run
@@ -14,7 +14,7 @@ veracode_static_scan:
       - '*'
     branches_to_exclude:
   pull_request:
-    trigger: false
+    trigger: true
     action:
       - opened
       - synchronize
@@ -40,13 +40,13 @@ veracode_static_scan:
   # If the trigger is set to true, a scan is triggered when you create an issue containing the commands value or add a comment containing the commands value to an issue.
   # Syntax to be used - COMMANDS_VALUE [branch: BRANCH_NAME]
   issues:
-    trigger: false
+    trigger: true
     commands:
       - "Veracode Static Scan"
 
 veracode_sca_scan:
   push:
-    trigger: false
+    trigger: true
     # Please only specify either branches_to_run or branches_to_exclude
     # Entering both will only execute branches_to_run
     # Leaving them both blank means this will never run
@@ -54,7 +54,7 @@ veracode_sca_scan:
       - '*'
     branches_to_exclude:
   pull_request:
-    trigger: false
+    trigger: true
     action:
       - opened
       - synchronize
@@ -68,13 +68,13 @@ veracode_sca_scan:
   # If the trigger is set to true, a scan is triggered when you create an issue containing the commands value or add a comment containing the commands value to an issue.
   # Syntax to be used - COMMANDS_VALUE [branch: BRANCH_NAME]
   issues:
-    trigger: false
+    trigger: true
     commands:
       - "Veracode SCA Scan"
 
 veracode_iac_secrets_scan:
   push:
-    trigger: false
+    trigger: true
     # Please only specify either branches_to_run or branches_to_exclude
     # Entering both will only execute branches_to_run
     # Leaving them both blank means this will never run
@@ -82,7 +82,7 @@ veracode_iac_secrets_scan:
       - '*'
     branches_to_exclude:
   pull_request:
-    trigger: false
+    trigger: true
     action:
       - opened
       - synchronize
@@ -97,6 +97,6 @@ veracode_iac_secrets_scan:
   # If the trigger is set to true, a scan is triggered when you create an issue containing the commands value or add a comment containing the commands value to an issue.
   # Syntax to be used - COMMANDS_VALUE [branch: BRANCH_NAME]
   issues:
-    trigger: false
+    trigger: true
     commands:
       - "Veracode IAC Scan"
